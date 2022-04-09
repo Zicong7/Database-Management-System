@@ -1,0 +1,42 @@
+<div class="login-card">
+  <mat-card id="card" style="text-align: center;">
+    <mat-card-title>
+      User Profile
+    </mat-card-title>
+
+    <mat-card-content>
+
+      <mat-form-field appearance="outline">
+        <input matInput type="text" [(ngModel)]='username' placeholder="Username" [disabled]="true">
+      </mat-form-field><br/>
+
+      <mat-form-field appearance="outline">
+        <input type="text" matInput [(ngModel)]='firstName'  placeholder="First name" [disabled]="true">
+      </mat-form-field><br/>
+
+      <mat-form-field appearance="outline">
+        <input matInput type="text" [(ngModel)]='lastName' placeholder="Last name">
+      </mat-form-field><br/>
+
+      <mat-form-field appearance="outline">
+        <input matInput type="text" [(ngModel)]='email' placeholder="Email">
+      </mat-form-field><br/>
+
+      <mat-form-field appearance="outline">
+        <input matInput type="text" [(ngModel)]='gender' placeholder="Gender">
+      </mat-form-field><br/>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Date of birth</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="dob">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field><br/>
+
+
+      <button mat-raised-button color="primary" style="margin-right:20px;" (click)="updateProfile()">Update</button>
+      <button mat-raised-button color="primary" style="margin-left:20px;" routerLink="/home">Cancel</button>
+
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,79 @@
+<mat-tab-group [selectedIndex]="selected.value"
+               (selectedIndexChange)="selected.setValue($event)"
+               mat-align-tabs="center">
+  <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab">
+  </mat-tab>
+</mat-tab-group>
+
+
+<div *ngIf="selected.value===0" class="search-bar">
+
+  <mat-form-field appearance="outline" class="select">
+    <mat-label>Search</mat-label>
+    <mat-select [(value)]="type">
+      <mat-option value="TouristSpot">Tourist Spot</mat-option>
+      <mat-option value="Restaurant">Restaurant</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="select">
+    <mat-label *ngIf="type==='TouristSpot'">Category</mat-label>
+    <mat-label *ngIf="type==='Restaurant'">Cuisine</mat-label>
+
+    <mat-select [(value)]="category">
+      <mat-option *ngIf="type==='TouristSpot'" value="museums">Museum</mat-option>
+      <mat-option *ngIf="type==='TouristSpot'" value="zoos">Zoo</mat-option>
+      <mat-option *ngIf="type==='TouristSpot'" value="aquariums">Aquarium</mat-option>
+      <mat-option *ngIf="type==='Restaurant'" value="American">American</mat-option>
+      <mat-option *ngIf="type==='Restaurant'" value="Arabic">Arabic</mat-option>
+      <mat-option *ngIf="type==='Restaurant'" value="Chinese">Chinese</mat-option>
+      <mat-option *ngIf="type==='Restaurant'" value="Indian">Indian</mat-option>
+      <mat-option *ngIf="type==='Restaurant'" value="Italian">Italian</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <mat-form-field appearance="outline" class="search">
+    <mat-label>Search</mat-label>
+    <input matInput placeholder="Enter destination city name" [(ngModel)]="city">
+    <mat-icon matSuffix (click)="searchPlaces()">search</mat-icon>
+  </mat-form-field>
+
+</div>
+
+
+<div *ngIf="selected.value===0" class="card-container">
+  <app-place *ngFor="let place of places" [place]="place" [tab]="selected.value"
+             (addFavoriteEvent)="getAllFavorites()"
+             (addWantEvent)="getAllWantToGo()"
+             (addStarEvent)="getAllStarred()"
+             (addVisitEvent)="getAllVisited()"></app-place>
+</div>
+
+
+<div *ngIf="selected.value===1" class="card-container">
+  <app-place *ngFor="let place of favorites" [place]="place" [tab]="selected.value"
+             (deleteFavoriteEvent)="getAllFavorites()"></app-place>
+</div>
+
+<div *ngIf="selected.value===2" class="card-container">
+  <app-place *ngFor="let place of wantToGo" [place]="place" [tab]="selected.value"
+             (deleteWantEvent)="getAllWantToGo()"></app-place>
+</div>
+
+<div *ngIf="selected.value===3" class="card-container">
+  <app-place *ngFor="let place of starred" [place]="place" [tab]="selected.value"
+             (deleteStarEvent)="getAllStarred()"></app-place>
+</div>
+
+<div *ngIf="selected.value===4" class="card-container">
+  <app-place *ngFor="let place of visited" [place]="place" [tab]="selected.value"
+             (deleteVisitEvent)="getAllVisited()"
+             (addReviewEvent)="getAllVisited()"></app-place>
+</div>
+
+
+
+
+
+

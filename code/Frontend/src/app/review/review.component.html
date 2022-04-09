@@ -1,0 +1,32 @@
+<h1 mat-dialog-title><b>{{data.title}}</b></h1>
+
+<div mat-dialog-content>
+
+  <!--
+  <p>
+    <mat-form-field appearance="outline" class="description">
+      <mat-label>Review</mat-label>
+      <textarea style="height: 150px" matInput [(ngModel)]="data.text"></textarea>
+    </mat-form-field>
+  </p>
+  -->
+
+  <mat-form-field appearance="outline">
+    <mat-label>Stars</mat-label>
+    <input matInput type="number" [min]="1" [max]="5" [(ngModel)]="data.rating">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" style="margin-left: 5px">
+    <mat-label>Recommended</mat-label>
+    <mat-select [(value)]="data.recommended">
+      <mat-option value=1>Yes</mat-option>
+      <mat-option value=0>No</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</div>
+
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" [mat-dialog-close]="data" cdkFocusInitial>Save</button>
+  <button mat-raised-button color="primary" (click)="onNoClick()">Discard</button>
+</div>

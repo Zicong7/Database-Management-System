@@ -1,0 +1,21 @@
+.card {
+  position: relative;
+  max-width: 270px;
+  min-height: 120px;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.bookmarked {
+  color: gold;
+}
+
+.bookmark {
+  color: gray;
+}
+
+.topright {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}

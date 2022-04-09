@@ -1,0 +1,25 @@
+.search-bar {
+  margin-top: 5px;
+  margin-left: 24%;
+  width: 60%;
+}
+
+.search {
+  width: 40%;
+}
+
+.select {
+  width: 20%;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(305px, 1fr));
+}
+
+.image{
+  height:15em; background-size:cover; width:auto;
+  background-image:url('../../assets/travel.png');
+  background-position:50% 50%;
+}
+

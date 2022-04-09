@@ -1,0 +1,128 @@
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title>{{place.place_name}}</mat-card-title>
+    <mat-card-subtitle>{{place.address}}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div style="width: 100%;">
+      <div style="width: 50%; float: left;">
+        {{ratingText}}
+      </div>
+      <div *ngIf="isResturanut == false" style="margin-left: 50%;">
+        ${{place.price}}
+      </div>
+
+      <div *ngIf="isResturanut == true" style="margin-left: 50%;">
+        <ul>
+          <li *ngFor="let item of menu">
+            <span>{{item.item_name}}: ${{item.item_price}}</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+
+    <div *ngIf="tab===0" class="topright">
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Drop Down Menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+
+      <mat-menu #menu="matMenu">
+
+        <button mat-menu-item (click)="addFavorite()">
+          <mat-icon>favorite</mat-icon>
+          <span>Add to favorite</span>
+        </button>
+
+        <button mat-menu-item (click)="addWantToGo()">
+          <mat-icon>bookmark</mat-icon>
+          <span>Add to want to go</span>
+        </button>
+
+        <button mat-menu-item (click)="addStarred()">
+          <mat-icon>star</mat-icon>
+          <span>Add to starred</span>
+        </button>
+
+        <button mat-menu-item (click)="addVisited()">
+          <mat-icon>collections_bookmark</mat-icon>
+          <span>Mark as visited</span>
+        </button>
+
+      </mat-menu>
+    </div>
+
+
+
+    <div *ngIf="tab===1" class="topright">
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Drop Down Menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+
+      <mat-menu #menu="matMenu">
+
+        <button mat-menu-item (click)="removeFavorite()">
+          <mat-icon>delete</mat-icon>
+          <span>Remove from favorite</span>
+        </button>
+
+      </mat-menu>
+    </div>
+
+
+    <div *ngIf="tab===2" class="topright">
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Drop Down Menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+
+      <mat-menu #menu="matMenu">
+
+        <button mat-menu-item (click)="removeWantToGo()">
+          <mat-icon>delete</mat-icon>
+          <span>Remove from want to go</span>
+        </button>
+
+      </mat-menu>
+    </div>
+
+    <div *ngIf="tab===3" class="topright">
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Drop Down Menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+
+      <mat-menu #menu="matMenu">
+
+        <button mat-menu-item (click)="removeStarred()">
+          <mat-icon>delete</mat-icon>
+          <span>Remove from starred</span>
+        </button>
+
+      </mat-menu>
+    </div>
+
+
+    <div *ngIf="tab===4" class="topright">
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Drop Down Menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+
+      <mat-menu #menu="matMenu">
+
+        <button mat-menu-item (click)="removeVisited()">
+          <mat-icon>delete</mat-icon>
+          <span>Remove from visited</span>
+        </button>
+
+        <button mat-menu-item (click)="openDialog()">
+          <mat-icon>rate_review</mat-icon>
+          <span>Add review</span>
+        </button>
+
+      </mat-menu>
+    </div>
+
+
+  </mat-card-content>
+</mat-card>

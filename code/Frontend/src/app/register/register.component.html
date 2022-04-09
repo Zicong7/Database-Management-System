@@ -1,0 +1,42 @@
+<div class="login-card">
+  <mat-card id="card" style="text-align: center;">
+    <mat-card-title>
+      Register
+    </mat-card-title>
+
+    <mat-card-content>
+
+      <mat-form-field appearance="outline">
+        <input matInput type="number" [(ngModel)]='username' placeholder="Userid" [required]="true">
+      </mat-form-field><br/>
+
+      <mat-form-field appearance="outline">
+        <input type="text" matInput [(ngModel)]='firstName'  placeholder="First name" required>
+      </mat-form-field><br/>
+
+      <mat-form-field appearance="outline">
+        <input matInput type="text" [(ngModel)]='lastName' placeholder="Last name" required>
+      </mat-form-field><br/>
+
+      <mat-form-field appearance="outline">
+        <input matInput type="text" [(ngModel)]='email' placeholder="Email" required>
+      </mat-form-field><br/>
+
+      <mat-form-field appearance="outline">
+        <input matInput type="text" [(ngModel)]='gender' placeholder="Gender" required>
+      </mat-form-field><br/>
+
+      <mat-form-field appearance="outline" requireds>
+        <mat-label>Date of birth</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="dob">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field><br/>
+
+
+      <button mat-raised-button color="primary" style="margin-right:20px;" (click)="register()">Register</button>
+      <button mat-raised-button color="primary" style="margin-left:20px;" routerLink="/login">Cancel</button>
+
+    </mat-card-content>
+  </mat-card>
+</div>

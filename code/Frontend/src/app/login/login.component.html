@@ -1,0 +1,22 @@
+<div class="login-card">
+  <mat-card id="card" style="text-align: center;">
+    <mat-card-title>
+      Travel Lovers
+    </mat-card-title>
+
+    <mat-card-content>
+
+      <mat-form-field appearance="outline">
+        <input type="text" matInput [(ngModel)]='username'  placeholder="Username">
+      </mat-form-field><br/>
+
+      <mat-form-field appearance="outline">
+        <input matInput type="password" [(ngModel)]='password' placeholder="Password" [disabled]="true">
+      </mat-form-field><br/>
+
+      <button mat-raised-button color="primary" style="margin-right:20px;" [disabled]="loading" (click)="login()">login</button>
+      <button mat-raised-button color="primary" style="margin-left:20px;" routerLink="/register">register</button>
+
+    </mat-card-content>
+  </mat-card>
+</div>
